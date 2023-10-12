@@ -1,12 +1,12 @@
 import './App.css';
-import Cards from './components/Cards.jsx';
-import Nav from './components/Nav';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import {Routes, Route, useLocation, useNavigate} from "react-router-dom"
+import Cards from './components/Cards/Cards';
+import Nav from './components/Nav/Nav';
 import About from './components/About';
 import Detail from './components/Detail';
-import Form from './components/Form';
+import Form from './components/Form/Form';
 import Favorites from './components/Favorites';
 
 
@@ -55,7 +55,7 @@ function App() {
    // ! RENDER
 
    return (
-      <div className='App'>
+      <div>
 
          {pathname !== "/" && <Nav onSearch= {onSearch} />}
 

@@ -5,38 +5,271 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.form {
+  background: linear-gradient(to bottom, #00FF00, #FF00FF); /* Fondo con degradado de colores */
+  color: #fff; /* Texto en blanco */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: acidDrip 1s infinite linear; /* Animación para simular el goteo de ácido */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@keyframes acidDrip {
+  0% {
+    background-position: 0 0;
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    background-position: 0 100%; /* Efecto de goteo de colores */
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+.form input[type="text"],
+.form input[type="password"] {
+  background: #444; /* Fondo gris oscuro para los campos de texto */
+  color: #fff; /* Texto en blanco */
+  border: 1px solid #FF00FF; /* Borde rosa */
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.form button {
+  background: #FF00FF; /* Fondo rosa para los botones */
+  color: #fff; /* Texto en blanco */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.form button:hover {
+  background: #3C8CF9; /* Cambio de color al pasar el mouse */
+}
+
+.form p {
+  color: #FF00FF; /* Texto rosa para mensajes informativos */
+}
+
+.rick-and-morty-card {
+  width: 300px;
+  background-color: #00FF00; /* Fondo verde para simular el efecto de ácido */
+  color: #000;
+  border: 2px solid #FF00FF; /* Borde rosa */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Sombra de color verde */
+
+  animation: acidDrip 1s infinite linear; /* Animación para simular el goteo de ácido */
+}
+
+@keyframes acidDrip {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px); /* Efecto de goteo hacia abajo */
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 
-.card {
-  padding: 2em;
+.rick-and-morty-card img {
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-.read-the-docs {
-  color: #888;
+.rick-and-morty-card button {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  margin-right: 5px;
+  color: #3C8CF9; /* Azul característico de la serie */
 }
+
+.rick-and-morty-card .card-details {
+  padding: 10px;
+}
+
+.rick-and-morty-card .card-details h2 {
+  font-size: 20px;
+  margin: 0;
+  color: #3C8CF9; /* Azul característico de la serie */
+}
+
+.rick-and-morty-card .card-details p {
+  font-size: 14px;
+  color: #999;
+  margin: 5px 0;
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 50px; /* Añade un margen superior para dejar espacio para la barra de navegación */
+}
+
+.navbar {
+  background: linear-gradient(to bottom, #00FF00, #FF00FF);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  position: fixed; /* Fijar la barra en la parte superior */
+  top: 0;
+  left: 0; /* Asegura que la barra esté pegada al borde izquierdo */
+  right: 0; /* Asegura que la barra esté pegada al borde derecho */
+  width: 100%;
+  z-index: 1;
+  animation: acidDrip 2s infinite linear;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@keyframes acidDrip {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%; /* Efecto de goteo de colores */
+  }
+}
+
+.navbar button {
+  background: #FF00FF; /* Fondo rosa para los botones de navegación */
+  color: #fff; /* Texto en blanco */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.navbar button a {
+  text-decoration: none;
+  color: #fff; /* Texto en blanco */
+}
+
+.navbar button:hover {
+  background: #3C8CF9; /* Cambio de color al pasar el mouse */
+  text-decoration: underline; /* Subrayado al pasar el mouse */
+}
+
+.search-bar {
+  background: #444; /* Fondo gris oscuro para la barra de búsqueda */
+  color: #fff; /* Texto en blanco */
+  border: 1px solid #FF00FF; /* Borde rosa */
+  border-radius: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="search"] {
+  background: #444; /* Fondo gris oscuro para el campo de búsqueda */
+  color: #fff; /* Texto en blanco */
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.search-bar button {
+  background: #FF00FF; /* Fondo rosa para el botón de búsqueda */
+  color: #fff; /* Texto en blanco */
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: #3C8CF9; /* Cambio de color al pasar el mouse */
+}
+
+.about-container {
+  background: linear-gradient(to bottom, #00FF00, #FF00FF); /* Fondo con degradado de colores */
+  color: #fff; /* Texto en blanco */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: acidDrip 1s infinite linear; /* Animación para simular el goteo de ácido */
+}
+
+@keyframes acidDrip {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%; /* Efecto de goteo de colores */
+  }
+}
+
+.about-image {
+  width: 300px;
+  border-radius: 50%; /* Da un estilo redondeado a la imagen de perfil */
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-list li {
+  margin-bottom: 10px;
+}
+
+.contact-list a {
+  color: #3C8CF9; /* Azul característico de la serie */
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+.favorites-container {
+  background-color: #222; /* Fondo oscuro */
+  color: #fff; /* Texto en blanco */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+select {
+  background-color: #444; /* Fondo gris oscuro para los selects */
+  color: #fff; /* Texto en blanco */
+  border: 1px solid #3C8CF9; /* Borde azul característico de la serie */
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.empty-favorites-message {
+  margin: 20px 0;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.detail-container {
+  background-color: #00FF00; /* Fondo verde para simular el efecto de ácido */
+  color: #FF00FF; /* Texto rosa */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: acidDrip 1s infinite linear; /* Animación para simular el goteo de ácido */
+}
+
+.character-image {
+  width: 300px;
+  border-radius: 10px; /* Da un estilo redondeado a la imagen */
+}
+
+/* Resto de los estilos para .detail-container */

@@ -1,11 +1,14 @@
 :root {
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color: rgba(182, 139, 38, 0.87);
+  background-color: #e22626;
+  background-image: url("assets/DreamShaper_v7_RICK_AND_MORTY_wallpaper_for_webpage_7.jpg");
+  background-size: 100% 100%;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,6 +16,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
 
 a {
   font-weight: 500;
@@ -24,6 +28,7 @@ a:hover {
 }
 
 body {
+
   margin: 0;
   display: flex;
   place-items: center;
@@ -31,29 +36,39 @@ body {
   min-height: 100vh;
 }
 
+
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
 button {
-  border-radius: 8px;
+
+  border-radius: 5rem;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  font-weight: semibold;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #213547;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 1s ease;
+  box-shadow: .5rem .5rem 1rem #0fac19
+  -.5rem -.5rem 1rem #a2f611;
+ 
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #0fac19;
+   box-shadow: .5rem .5rem 1rem #a2f611
+  -.5rem -.5rem 1rem #0fac19;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+
 
 @media (prefers-color-scheme: light) {
   :root {
