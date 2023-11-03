@@ -2,6 +2,7 @@
 const express = require('express');
 const server = express();
 const PORT = 3001;
+const { conn } = require('./DB_connection')
 
 /* routes */
 const { router } = require('./routes/index')
@@ -28,6 +29,8 @@ una ruta en el router que es tipo GET y dije que se llama '/login', con este mid
 
 server.use('/rickandmorty', router);
 
-server.listen(PORT, () => {
-   console.log('Server raised in port: ' + PORT);
-});
+conn.sync({ alter: true }).then(() => {
+   server.listen(PORT, () => {
+      console.log('Server raised in port: ' + PORT);
+   });
+})

@@ -8,7 +8,7 @@ export default function Detail() {
   const { id } = useParams();
 
   useEffect(() => {
-    axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-jljerelongo`)
+    axios(`http://localhost:3001/rickandmorty/character/${id}`)
       .then(({ data }) => {
         if (data.name) {
           setCharacter(data);

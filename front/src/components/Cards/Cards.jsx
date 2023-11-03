@@ -1,47 +1,21 @@
-// import Card from '../Card/Card';
-
-// const Cards = ({characters, onClose}) => {
-//    return(
-//    <div>
-//       {characters.map( (character) => {
-//          return <div className="cards">
-//                      <Card
-//                         id = {character.id}
-//                         key = {character.id}
-//                         name = {character.name}
-//                         status={character.status}
-//                         species={character.species}
-//                         gender={character.gender}
-//                         origin={character.origin.name}
-//                         image={character.image}
-//                         onClose={onClose} />
-//                </div>
-//       })}
-//    </div>
-//    )
-// }
-
-// export default Cards;
 import Card from '../Card/Card';
 
-const Cards = ({ characters, onClose }) => {
-  return (
-    <div className="cards-container">
-      {characters.map((character) => (
-        <Card
-          id={character.id}
-          key={character.id}
-          name={character.name}
-          status={character.status}
-          species={character.species}
-          gender={character.gender}
-          origin={character.origin.name}
-          image={character.image}
-          onClose={onClose}
-        />
-      ))}
-    </div>
-  );
-};
+function Cards({characters, onClose}) {
+   return <div className="cards-container">
+      {characters.map(({id, name, status, species, gender, origin, image}) => {
+         return <Card
+         key= {id} //el método map necesita un index, pero como tenemos el id de los pjs no es necesario el index. Al hacer el map estamos renderizando info diferente cada vez, y ésta debe ser única para REACT, por lo q la key es un identificador de cada info.
+         id = {id}
+         name = {name}
+         status = {status}
+         species = {species}
+         gender = {gender}
+         origin = {origin.name}
+         image = {image}
+         onClose = {onClose}
+         />
+      })}
+   </div>;
+}
 
-export default Cards;
+export default Cards

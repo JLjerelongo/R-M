@@ -10,47 +10,53 @@ import Form from './components/Form/Form';
 import Favorites from './components/Favorites';
 
 
-function App() {
+const App = () => {
    // ! HOOKS
    const [characters, setCharacters] = useState([]);
    const { pathname } = useLocation();
    const [access, setAccess] = useState(false);
    const  navigate = useNavigate();
    
-   useEffect(() => {
-      !access && navigate('/');
-   }, [access]);
-
+   
    // ! CREDECIALES FAKE
    const email = "jerelongo09@gmail.com";
    const password = "mipass123"
-
+   
    // ! EVENT HANDLERS
-   function onSearch(id) {
-      axios(`https://rym2.up.railway.app/api/character/${id}?key=pi-jljerelongo`)
-      .then(
-         ({ data }) => {
-            if (data.name) {
-               setCharacters((oldChars) => [...oldChars, data]);
-            } else {
-               alert('¡No hay personajes con este ID!');
-            }
+   const onSearch = async (id) => {
+      try {
+         const { data } = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+
+         if (data.name) {
+            setCharacters((oldChars) => [...oldChars, data]);
          }
-      );
-   }
 
-   function onClose(id){
-      setCharacters(characters.filter((character) => character.id !== id))
-   }
-
-   const login = (userData) => {
-      if(userData.email === email && userData.password == password){
-         setAccess(true);
-         navigate("/home");
-      }else{
-         alert("Credenciales incorrectas")
+      } catch (error) {
+         alert('¡No hay personajes con este ID!');
       }
    };
+      
+      function onClose(id){
+         setCharacters(characters.filter((character) => character.id !== id))
+      }
+      
+      const login = async (userData) => {
+         try {
+            const { email, password } = userData;
+            const URL = 'http://localhost:3001/rickandmorty/login/';
+            const { data } = await axios(`${URL}?email=${email}&password=${password}`)
+            const { access } = data;
+            setAccess(data);
+            access && navigate('/home');
+
+         } catch (error) {
+            throw Error(error.message)
+         }
+      };
+      
+      useEffect(() => {
+      !access && navigate('/');
+      }, [access]);
 
    // ! RENDER
 
